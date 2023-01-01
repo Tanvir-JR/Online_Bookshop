@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="541fd9e139224a779c8cd47adceb3ffb" Name="Diagram1">
+        <EntityTypeShape EntityType="BookshopModel.Book" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.BookStore" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.Buy" Width="1.5" PointX="10" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.Category" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.Language" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.Payment" Width="1.5" PointX="7.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.Report" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.Role" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.Token" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.User" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="BookshopModel.FK_Books_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_Books_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_BookStores_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_Buys_Payments" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_Reports_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_Tokens_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

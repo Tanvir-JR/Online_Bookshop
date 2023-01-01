@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script>
+            var app = angular.module("my-app",[]);
+           
+            app.controller('rolelistCtrl',function($scope,$http){
+                $http.get("https://localhost:44302/api/roles").then(function(resp){
+                    $scope.Roles = resp.data;
+                },function(err){
+                    $scope.err = "Something went wrong";
+                });
+            });
+            
+            app.controller('userlistCtrl',function($scope,$http){
+                $http.get("https://localhost:44302/api/users").then(function(resp){
+                    $scope.Users = resp.data;
+                },function(err){
+                    $scope.err = "Something went wrong";
+                });
+            });
+            
+            app.controller('tokenlistCtrl',function($scope,$http){
+                $http.get("https://localhost:44302/api/tokens").then(function(resp){
+                    $scope.Tokens = resp.data;
+                },function(err){
+                    $scope.err = "Something went wrong";
+                });
+            });
+
+            app.controller('categorylistCtrl',function($scope,$http){
+                $http.get("https://localhost:44302/api/categories").then(function(resp){
+                    $scope.Categories = resp.data;
+                },function(err){
+                    $scope.err = "Something went wrong";
+                });
+            });
+        </script>
+    </head>
+    <style type="text/css">
+         .table {
+            background-color: aquamarine;
+            padding: 10px;
+            margin: 0px 50px 50px 50px;
+            
+            }
+        .h4 {
+            color: brown;
+        }
+    </style>
+    <body ng-app="my-app">
+        
+        <div ng-controller="rolelistCtrl" >
+            <h4 class="text-success"><u>Role Table</u></h4>
+            <table class="table table-success table-striped "border="1">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Role</th>
+                    
+                  </tr>
+                </thead>
+                <tbody ng-repeat="h in Roles">
+                  <tr>
+                    <td>{{h.id}}</td>
+                    <td>{{h.role}}</td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+        </div>
+
+        <div ng-controller="userlistCtrl">
+            <h4><u>User Table</u></h4>
+            <table class="table table-success table-striped " border="1"  >
+                <thead>
+                    <th scope="col">ID</th>
+                    <th scope="col">USERNAME</th>
+                    <th scope="col">PASSWORD</th>
+                    <th scope="col">PHONE</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">ROLEID</th>
+                    <th scope="col">ADDRESS</th>
+                    
+                </thead>
+               
+                <tr ng-repeat="h in Users">
+                    <td>{{h.id}}</td>
+                    <td>{{h.username}}</td>
+                    <td>{{h.password}}</td>
+                    <td>{{h.phone}}</td>
+                    <td>{{h.email}}</td>
+                    <td>{{h.roleId}}</td>
+                    <td>{{h.address}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div ng-controller="tokenlistCtrl">
+            <h4><u>Token Table</u></h4>
+            <table class="table table-success table-striped " border="1"  >
+                <thead>
+                    <th scope="col">ID</th>
+                    <th scope="col">Tkey</th>
+                    <th scope="col">CREATION TIME</th>
+                    <th scope="col">EXPIRATION TIME</th>
+                    <th scope="col">USER ID</th>
+                    
+                </thead>
+               
+                <tr ng-repeat="h in Tokens">
+                    <td>{{h.id}}</td>
+                    <td>{{h.tKey}}</td>
+                    <td>{{h.creationTime}}</td>
+                    <td>{{h.expirationTime}}</td>
+                    <td>{{h.userId}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div ng-controller="categorylistCtrl" >
+            <h4><u>Category Table</u></h4>
+            <table class="table table-success table-striped "border="1">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">CATEGORY</th>
+                    
+                  </tr>
+                </thead>
+                <tbody ng-repeat="h in Categories">
+                  <tr>
+                    <td>{{h.id}}</td>
+                    <td>{{h.name}}</td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+        </div>
+    </body>
+</html>
